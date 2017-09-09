@@ -28,6 +28,11 @@
         </div>
         <div class="cart">
             <h2>Shopping Cart</h2>
+            <ul>
+                <li class="cart-item" v-for="item in cart">
+                    <div class="item-title">{{ item.title }}</div>
+                </li>
+            </ul>
             <div>
                <div>Total: {{ total }}</div>
             </div>
