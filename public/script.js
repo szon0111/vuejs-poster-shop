@@ -6,7 +6,7 @@ new Vue({
         total: 0,
         items: [],
         cart: [],
-        search: '',
+        newSearch: '90s',
         lastSearch: '',
         loading: false
     },
@@ -64,5 +64,8 @@ new Vue({
         currency: function(price) {
             return '$'.concat(price.toFixed(2));
         }
+    },
+    mounted: function() {
+        this.onSubmit();
     }
 });
