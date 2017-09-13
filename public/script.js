@@ -14,7 +14,12 @@ new Vue({
     },
     methods: {
         onSubmit: function() {
-            console.log(this.search);
+            this.$http
+            .get('/search/'
+            .concat(this.search))
+            .then(function(res) {
+                console.log(res);    
+            });
         },
         addItem: function(index) {
             this.total += 9.99;
