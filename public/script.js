@@ -15,17 +15,19 @@ new Vue({
     },
     methods: {
         onSubmit: function() {
-            this.items = [];
-            this.loading = true;
-            this.$http
-            .get('/search/'
-            .concat(this.newSearch))
-            .then(function(res) {
-                this.lastSearch = this.newSearch;
-                this.results = res.data;
-                this.items = res.data.slice(0, LOAD_NUM);
-                this.loading = false;    
-            });
+            if  (this.newSearch.length) {
+                this.items = [];
+                this.loading = true;
+                this.$http
+                .get('/search/'
+                .concat(this.newSearch))
+                .then(function(res) {
+                    this.lastSearch = this.newSearch;
+                    this.results = res.data;
+                    this.items = res.data.slice(0, LOAD_NUM);
+                    this.loading = false;    
+                });
+            }
         },
         addItem: function(index) {
             this.total += 9.99;
